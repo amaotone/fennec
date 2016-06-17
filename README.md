@@ -39,7 +39,6 @@ When you call `fennec.Workspace`, you'll get absolute path
 to the file in the workspace.
 
 ```python
-import fennec as fn
 workspace = fn.Workspace("category/experiment")
 print(workspace())
 print(workspace("result.log"))
