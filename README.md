@@ -1,4 +1,4 @@
-# Fennec 
+# Fennec
 
 Fennec is a simple data analysis toolbox in python.
 
@@ -15,33 +15,26 @@ pip install --upgrade git+https://github.com/amaotone/fennec.git
 import fennec as fn
 ```
 
-### Workspace Manager
+### Workspace
 
 `fennec.Workspace` will make `./results/category/[timestamp]_name` folder for workspace.
-
-```python
-workspace = fn.Workspace("category/name")
-```
 
 This class enable us to put results in the same folder with time stamp for each trial.
 It prevend results from vanishing or overwriting.
 
-#### Logging
-Add log to the workspace.
 
 ```python
+import fennec as fn
+
+# make workspace
 workspace = fn.Workspace("category/name")
+
+# logging
 workspace.log("hello world")
-```
 
-#### Get Path
-When you call `fennec.Workspace`, you'll get absolute path
-to the file in the workspace.
-
-```python
-workspace = fn.Workspace("category/experiment")
+# get path
 print(workspace())
-print(workspace("result.log"))
+print(workspace("result.log")
 ```
 
 ## License
