@@ -34,7 +34,7 @@ workspace.log("hello world")
 
 # get path
 print(workspace())
-print(workspace("result.log")
+print(workspace("result.log"))
 ```
 
 ## License
