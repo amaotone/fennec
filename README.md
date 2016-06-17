@@ -1,6 +1,6 @@
 # Fennec
 
-Fennec is a simple data analysis toolbox in python.
+Fennec is a simple data analysis toolbox with python.
 
 ## Installation
 
