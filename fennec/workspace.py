@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 import logging
 import os
 import re
@@ -55,10 +53,7 @@ class Workspace(object):
     def _get_abs_path(self, relpath=""):
         """Convert relative path to absolute path based on workspace directory."""
         abspath = os.path.abspath(os.path.join(self._path, relpath))
-
-        # exist_ok does not exists for os.makedirs in python 2
-        if not os.path.exists(abspath):
-            os.makedirs(os.path.dirname(abspath))
+        os.makedirs(os.path.dirname(abspath), exist_ok=True)
         return abspath
 
     def __call__(self, relpath=""):
