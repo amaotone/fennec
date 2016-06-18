@@ -1,18 +1,36 @@
 from setuptools import setup, find_packages
 
-setup_requires = []
+version = "0.0.1"
+name = "fennec"
+description = "Fennec is a simple toolbox for statistical analysis."
+
+author = "Amane SUZUKI"
+email = "amane.suzu@gmail.com"
+url = "https://github.com/amaotone/fennec"
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering"
+]
+
 install_requires = [
     "pytz",
 ]
+
 setup(
-    name='fennec',
-    version='0.0.1',
-    description='Simple data analysis toolbox in python.',
-    author='Amane Suzuki',
-    author_email='asuzuki@chemsys.t.u-tokyo.ac.jp',
+    name=name,
+    version=version,
+    description=description,
+    author=author,
+    author_email=email,
     license='MIT',
-    url='https://github.com/amaotone/fennec',
+    url=url,
     packages=find_packages(),
-    setup_requires=setup_requires,
+    classifiers=classifiers,
     install_requires=install_requires
 )

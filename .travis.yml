@@ -5,3 +5,12 @@ install:
   - pip install tox
 script:
   - tox
+deploy:
+  provider: pypi
+  user: amaotone
+  on:
+    repo: amaotone/fennec
+    branch: release/pypi
+    destributions: sdist --formats=gztar, zip
+    python: 3.5
+  allow_failure: false

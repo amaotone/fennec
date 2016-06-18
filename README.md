@@ -4,17 +4,28 @@
 
 # Fennec
 
-Fennec is a simple data analysis toolbox with python.
+Fennec is a simple toolbox for statistical analysis with python.
+
+## Dependencies
+
+- Minimal
+    - Python 3.4, Python 3.5
+- Workspace
+    - pytz
+- Testing
+    - py.test
+    - tox
 
 ## Installation
 
 ```bash
-pip install --upgrade git+https://github.com/amaotone/fennec.git
+pip install fennec
 ```
 
 ## Usage
 
 ### Import
+
 ```python
 import fennec as fn
 ```
