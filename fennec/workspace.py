@@ -1,6 +1,5 @@
 import logging
 import os
-import re
 from datetime import datetime
 
 from pytz import timezone
@@ -11,50 +10,49 @@ class Workspace(object):
 
     Args:
         name (str): Workspace name. (it is used for directory naming)
-        root (str): Root of results.
+        root (str): Root of results. (default value is "./results"
 
     Attributes:
         name (str): Workspace name.
         category (str): Workspace category.
     """
 
-    root = "./results"
     zone = timezone("Asia/Tokyo")
     date_fmt = "%Y%m%d_%H%M%S"
 
-    def __init__(self,
-                 name="experiment",
-                 root="./results"):
-        self.category, self.name = re.match(r"(?:(.+)/)?(.+)", name).groups("")
-        Workspace.root = root
-        self._created = datetime.now(Workspace.zone)
-        self._path = os.path.join(Workspace.root,
-                                  self.category,
-                                  "{}_{}".format(self._created.strftime(Workspace.date_fmt), self.name))
+    def __init__(self, name, root="./results"):
+        category_, name_ = os.path.split(name)
+
+        self.name = name_ if name_ else "experiment"
+        self.category = category_
+        self.root = root
+        self.created = datetime.now(Workspace.zone)
+
+        self.path = os.path.join(self.root,
+                                 self.category,
+                                 "{}_{}".format(self.created.strftime(Workspace.date_fmt), self.name))
+
         self._logger = None
 
-    def log(self, message, display=True):
+    def log(self, message):
         """Logging"""
         if self._logger is None:
             self._init_logger()
 
         self._logger.info(message)
 
-        if display:
-            print(message)
-
     def _init_logger(self):
-        logging.basicConfig(filename=self._get_abs_path("result.log"),
+        logging.basicConfig(filename=self.abspath("result.log"),
                             format="[%(asctime)s %(name)s] %(message)s",
                             datefmt="%Y/%m/%d %I:%M:%S",
                             level=logging.DEBUG)
         self._logger = logging.getLogger(self.name)
 
-    def _get_abs_path(self, relpath=""):
+    def abspath(self, path):
         """Convert relative path to absolute path based on workspace directory."""
-        abspath = os.path.abspath(os.path.join(self._path, relpath))
+        abspath = os.path.abspath(os.path.join(self.path, path))
         os.makedirs(os.path.dirname(abspath), exist_ok=True)
         return abspath
 
-    def __call__(self, relpath=""):
-        return self._get_abs_path(relpath)
+    def __call__(self, path=""):
+        return self.abspath(path)
