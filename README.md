@@ -1,4 +1,4 @@
-![build](https://travis-ci.org/amaotone/fennec.svg?branch=master)
+[![Build Status](https://travis-ci.org/amaotone/fennec.svg?branch=master)](https://travis-ci.org/amaotone/fennec)
 [![Code Climate](https://codeclimate.com/github/amaotone/fennec/badges/gpa.svg)](https://codeclimate.com/github/amaotone/fennec)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
