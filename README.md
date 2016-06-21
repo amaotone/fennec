@@ -1,5 +1,6 @@
+[![PyPI](https://img.shields.io/pypi/v/fennec.svg?maxAge=2592000)](https://pypi.python.org/pypi/fennec)
+![Python Versions](https://img.shields.io/badge/python-3.4%2C%203.5-blue.svg)
 [![Build Status](https://travis-ci.org/amaotone/fennec.svg?branch=master)](https://travis-ci.org/amaotone/fennec)
-[![Code Climate](https://codeclimate.com/github/amaotone/fennec/badges/gpa.svg)](https://codeclimate.com/github/amaotone/fennec)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 # Fennec
