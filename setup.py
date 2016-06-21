@@ -20,6 +20,8 @@ classifiers = [
 
 install_requires = [
     "pytz",
+    "numpy",
+    "pandas"
 ]
 
 setup(
