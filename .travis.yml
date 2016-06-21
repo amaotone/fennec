@@ -1,22 +1,23 @@
+sudo: false
 language: python
 python:
-  - 3.5
+  - "3.5"
 env:
   - TOXENV=py34
   - TOXENV=py35
 install:
-  - pip install tox
+  - pip install tox --download-cache $HOME/.pip-cache
 script:
-  - tox -e $TOX_ENV
+  - tox -e $TOXENV
 cache:
-  - pip
   directories:
-    - .tox
-deploy: # when pushing release/pypi, upload to pypi
+    - "$HOME/.pip-cache/"
+    - "$HOME/.tox/"
+deploy: # when pushing master, upload to pypi
   provider: pypi
   user: amaotone
   on:
     repo: amaotone/fennec
-    branch: release/pypi
+    branch: master
     destributions: sdist --formats=gztar, zip
   allow_failure: false
